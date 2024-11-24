@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Página inicial</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="css/main.css" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        
+        Tudo & Mais
+
+        <nav>
+            <a th:href="@{/adicionar}">Adicionar Produto</a>
+            <a th:href="@{/adicionarcategoria}">Adicionar Categoria</a>
+            <a th:href="@{/listagem}">Listar Produtos</a>
+            <a th:href="@{/listagemCategoria}">Listar Categorias</a>
+        </nav>    
+
+    </header>
+
+
+    <article>
+        <div class="table-container">
+            <h1>Gerenciamento de Produtos</h1>
+            <table>
+                <caption>Categorias</caption>
+                <tbody>
+                    <tr>
+                        <td><a th:href="@{/eletronicos}">Eletrônicos</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/papelaria}">Papelaria</a></td>
+                    </tr>
+                    <tr>
+                        <td><a th:href="@{/roupas}">Roupas</a></td>
+                    </tr>
+                 </tbody>
+
+            </table>
+            
+        </div>    
+    </article>
+
+</body>
+</html>

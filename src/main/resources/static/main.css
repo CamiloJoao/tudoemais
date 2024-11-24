@@ -1,0 +1,74 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: grid;
+    height: 100vh;
+    margin: 0;
+    grid-template-areas: "topbar topbar topbar"
+                           "content content content"
+                           "footer footer footer";
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 50px auto 70px;
+    gap: 10px 10px;
+}
+
+header {
+    background-color: rgb(200, 247, 240);
+    grid-area: topbar;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+article {
+    background-color: rgb(255, 255, 255);
+    grid-area: content;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-container {
+    width: 100%;
+    display: grid;
+    justify-content: center; /* Alinha horizontalmente no centro */
+}
+
+table {
+    
+    font-family:serif;
+    font-size: 18px;
+    width: 500px;
+    border-collapse: separate; /* Necessário para aplicar o border-radius */
+    border-spacing: 0; 
+    border: 5px solid #000000; 
+    border-radius: 15px; 
+    overflow: hidden; /*conteudo respeita as bordas*/
+    
+}
+
+
+th {
+    background-color: aquamarine;
+    
+}
+
+th, td {
+    border: 1px solid;
+    padding: 5px;
+    text-align: center;
+}
+
+
+caption {
+    font-weight: 10px;
+    font-size: 30px;
+    background-color: rgb(133, 207, 204);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+nav a {
+    margin-right: 20px;
+}

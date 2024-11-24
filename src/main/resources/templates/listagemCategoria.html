@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <link href="css/main.css" rel="stylesheet">
+    <title>Listagem de Categoria</title>
+</head>
+<body>
+    <header>
+        
+        <a th:href="@{/}">Tudo & Mais</a>
+
+        <nav>
+            <a th:href="@{/adicionar}">Adicionar Produto</a>
+            <a th:href="@{/adicionarcategoria}">Adicionar Categoria</a>
+            <a th:href="@{/listagem}">Listar Produtos</a>
+            <a th:href="@{/listagemCategoria}">Listar Categorias</a>
+        </nav>    
+
+    </header>
+
+    <article>
+        <div class="table-container">
+            <h1>Gerenciamento de produtos</h1>
+
+
+            
+            <table>
+                <caption>Listagem de Categoria</caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Apagar Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="categoria : ${categorias}">
+                        <td th:text="${categoria.id}"></td>
+                        <td th:text="${categoria.nomeCategoria}"></td>
+                        <td>
+                            <form th:action="@{'/deletarcategoria/' + ${categoria.id}}" method="post">
+                                <input type="submit" value="Apagar">
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+             <!-- Mensagem de sucesso -->
+             <div th:if="${success}" style="color: green" class="alert alert-success">
+                <p th:text="${success}"></p>
+            </div>
+
+            <!-- Mensagem de erro -->
+            <div th:if="${error}" style="color:red" class="alert alert-danger">
+                <p th:text="${error}"></p>
+            </div>
+        </div>
+    </article>    
+    
+</body>
+</html>

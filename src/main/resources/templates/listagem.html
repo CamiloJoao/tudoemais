@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <link href="/css/main.css" rel="stylesheet">
+    <title>Listagem de Produtos</title>
+</head>
+<body>
+
+    <header>
+        
+        <a th:href="@{/}">Tudo & Mais</a>
+
+        <nav>
+            <a th:href="@{/adicionar}">Adicionar Produto</a>
+            <a th:href="@{/adicionarcategoria}">Adicionar Categoria</a>
+            <a th:href="@{/listagem}">Listar Produtos</a>
+            <a th:href="@{/listagemCategoria}">Listar Categorias</a>
+        </nav>    
+
+    </header>
+    <article>
+        <div class="table-container">
+            <h1>Gerenciamento de Produtos</h1>
+
+
+        
+            <table>
+                <Caption>Listagem de Produtos</Caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Categoria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="produto : ${produtos}">
+                        <td th:text="${produto.id}"></td>
+                        <td th:text="${produto.nome}"></td>
+                        <td th:text="${produto.descricao}"></td>
+                        <td th:text="${produto.preco}"></td>
+                        <td th:text="${produto.categoria.nomeCategoria}"></td>
+                        <td><a th:href="@{'/atualizar/' + ${produto.id}}">Atualizar</a></td>
+                        <td>
+                            <form th:action="@{'/deletarproduto/' + ${produto.id}}" method="post">
+                                <input type="submit" value="Apagar">
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>    
+    </article>
+    
+</body>
+</html>

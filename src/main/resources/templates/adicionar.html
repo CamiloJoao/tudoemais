@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Página inicial</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        
+        <a th:href="@{/}">Tudo & Mais</a>
+
+        <nav>
+            <a th:href="@{/adicionar}">Adicionar Produto</a>
+            <a th:href="@{/adicionarcategoria}">Adicionar Categoria</a>
+            <a th:href="@{/listagem}">Listar Produtos</a>
+            <a th:href="@{/listagemCategoria}">Listar Categorias</a>
+        </nav>    
+
+    </header>
+   
+
+
+    <article>
+        <div class="table-container">
+            <h1>Gerenciamento de produtos</h1>
+
+            <div th:if="${mensagem}" style="color: green;">
+                <p th:text="${mensagem}"></p>
+            </div>
+
+            <form th:action="@{/adicionar}" method="post" th:object="${produto}">
+
+                Nome: <input type="text" th:field="*{nome}"><br>
+                Descrição: <input type="text" th:field="*{descricao}"><br>
+                Preço: <input type="number" th:field="*{preco}"><br>
+
+
+                <label for="categoria">Categoria:</label>
+                <select th:field="*{categoriaId}">
+                    <option th:each="cat : ${categorias}" 
+                        th:value="${cat.id}"  
+                        th:text="${cat.nomeCategoria}">
+                    </option>
+                </select>
+
+                <input type="submit" value="Adicionar" name="adicionar">
+
+            </form>
+        </div>
+
+    
+    </article>
+    
+  
+</body>
+</html>

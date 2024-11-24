@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Eletrônicos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="css/main.css" rel="stylesheet">
+   
+</head>
+<body>
+    <header>
+        
+        <a th:href="@{/}">Tudo & Mais</a>
+
+        <nav>
+            <a th:href="@{/adicionar}">Adicionar Produto</a>
+            <a th:href="@{/adicionarcategoria}">Adicionar Categoria</a>
+            <a th:href="@{/listagem}">Listar Produtos</a>
+            <a th:href="@{/listagemCategoria}">Listar Categorias</a>
+        </nav>    
+
+    </header>
+    <article>
+        <div class="table-container">
+            <h1>Gerenciamento de Produtos</h1>
+
+
+        
+            <table>
+                <Caption>Eletrônicos</Caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="produto : ${produtos}">
+                        <td th:text="${produto.id}"></td>
+                        <td th:text="${produto.nome}"></td>
+                        <td th:text="${produto.descricao}"></td>
+                        <td th:text="${produto.preco}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>    
+    </article>
+</body>
+</html>

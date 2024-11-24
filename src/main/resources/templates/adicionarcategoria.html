@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Página inicial</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        
+        <a th:href="@{/}">Tudo & Mais</a>
+
+        <nav>
+            <a th:href="@{/adicionar}">Adicionar Produto</a>
+            <a th:href="@{/adicionarcategoria}">Adicionar Categoria</a>
+            <a th:href="@{/listagem}">Listar Produtos</a>
+            <a th:href="@{/listagemCategoria}">Listar Categorias</a>
+        </nav>    
+
+    </header>
+
+
+    <article>
+        <div class="table-container">
+            <h1>Gerenciamento de produtos</h1>
+
+            <div th:if="${mensagem}" style="color: green;">
+                <p th:text="${mensagem}"></p>
+            </div>
+
+
+            </form>
+
+            <form th:action="@{/adicionarcategoria}" method="post" th:object="${categoria}">
+                Adicionar Categoria: <input type="text" th:field="*{nomeCategoria}"><br>
+
+                <input type="submit" value="Adicionar categoria" name="adicionarcategoria">
+            </form>
+        </div>
+       
+        
+    </article>
+    
+  
+  
+</body>
+</html>

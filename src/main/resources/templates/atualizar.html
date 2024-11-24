@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <title>Atualizar</title>
+    <link href=/css/main.css rel="stylesheet">
+</head>
+<body>
+    <header>
+        
+        <a th:href="@{/}">Tudo & Mais</a>
+
+        <nav>
+            <a th:href="@{/adicionar}">Adicionar Produto</a>
+            <a th:href="@{/adicionarcategoria}">Adicionar Categoria</a>
+            <a th:href="@{/listagem}">Listar Produtos</a>
+            <a th:href="@{/listagemCategoria}">Listar Categorias</a>
+        </nav>    
+
+    </header>
+
+    <article>
+        <div class="table-container">
+            <h1>Atualizar Produto</h1>
+            <form th:action="@{'/atualizar/' + ${id}}" method="post" th:object="${produto}">
+
+                Nome: <input type="text" th:field="*{nome}"><br>
+                Descrição: <input type="text" th:field="*{descricao}"><br>
+                Preço: <input type="number" th:field="*{preco}"><br>
+
+                <label for="categoria">Categoria:</label>         
+                        <select th:field="*{categoria.id}">
+                                <option
+                                        th:each="cat : ${categorias}" 
+                                        th:value="${cat.id}"  
+                                        th:text="${cat.nomeCategoria}">
+                                </option>
+                        </select><br>
+                        <input type="submit" value="Atualizar" >
+            </form>
+        </div>
+        
+    </article>
+
+</body>
+</html>
