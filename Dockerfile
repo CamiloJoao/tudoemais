@@ -13,4 +13,4 @@ RUN ./mvnw package
 
 RUN ls -l ./target
 
-CMD ["java","-jar","target/tudoemais.war"]
+CMD ["java","-jar","target/tudoemais-0.0.1-SNAPSHOT.war"]
