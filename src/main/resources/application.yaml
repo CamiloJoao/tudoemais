@@ -3,41 +3,19 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://localhost:5432/teste
-        username: postgres
-        password: root
+        url: jdbc:postgresql://dpg-ct1pedi3esus73d27t30-a.oregon-postgres.render.com:5432/bancotudoemais
+        username: bancotudoemais_user
+        password: Wsxlq4Iskjb3BNecSs3avFyyaS5a3MHX
         driver-class-name: org.postgresql.Driver
         initialize: true
-
-    jpa: 
+    
+    jpa:
         hibernate:
             ddl-auto: create-drop
             generate-ddl: true
-
+        
     sql:
         init:
             schema-locations: classpath:/schema-postgresql.sql
             mode: always
-            platform: postgres
-
-
-
-
-# spring:
-#     datasource:
-#         url: jdbc:postgresql://dpg-ct1pedi3esus73d27t30-a.oregon-postgres.render.com:5432/bancotudoemais
-#         username: bancotudoemais_user
-#         password: Wsxlq4Iskjb3BNecSs3avFyyaS5a3MHX
-#         driver-class-name: org.postgresql.Driver
-#         initialize: true
-    
-#     jpa:
-#         hibernate:
-#             ddl-auto: create-drop
-#             generate-ddl: true
-        
-#     sql:
-#         init:
-#             schema-locations: classpath:/schema-postgresql.sql
-#             mode: always
-#             platform: postgres            
+            platform: postgres            
